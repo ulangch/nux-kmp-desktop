@@ -1,0 +1,17 @@
+<resources>
+    <string name="device_state_info">设备状态信息</string>
+    <string name="refresh">刷新</string>
+    <string name="service_invalid">当前服务不可用，请使用管理员权限打开应用。</string>
+    <string name="device_name">设备名称：</string>
+    <string name="device_name_description">设备名称将会展示在Android/iOS APP上。</string>
+    <string name="device_identifier">设备标识：</string>
+    <string name="device_identifier_description">设备的唯一可识别ID，自动生成不可更改。</string>
+    <string name="running_duration">本次运行</string>
+    <string name="running_duration_fmt">%d 天 %d 时 %d 分 %d 秒</string>
+    <string name="cpu_upper">CPU</string>
+    <string name="memory">内存</string>
+    <string name="lan_address">局域网地址</string>
+    <string name="qrcode_description">使用Android/iOS APP扫描右侧二维码可主动绑定设备。</string>
+    <string name="store_dirs">存储空间</string>
+    <string name="store_dirs_description">设备的存储空间，最多配置%d个文件目录。</string>
+</resources>
