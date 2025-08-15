@@ -1,4 +1,4 @@
-package com.ukii.nsp.desktop.nux
+package com.uki.nux.desktop.nux
 
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -7,6 +7,7 @@ import androidx.compose.ui.unit.sp
  * Created by ulangch on 2025/8/13
  */
 object NuxDimens {
+    val S10 = 10.sp
     val S11 = 11.sp
     val S12 = 12.sp
     val S13 = 13.sp

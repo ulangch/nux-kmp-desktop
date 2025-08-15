@@ -1,4 +1,4 @@
-package com.ukii.nsp.desktop.screens
+package com.uki.nux.desktop.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -31,10 +31,10 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import com.ukii.nsp.desktop.nux.NuxColors
-import com.ukii.nsp.desktop.nux.NuxDimens
-import com.ukii.nsp.desktop.nux.NuxProgressCircle
-import com.ukii.nsp.desktop.nux.NuxStyle
+import com.uki.nux.desktop.nux.NuxColors
+import com.uki.nux.desktop.nux.NuxDimens
+import com.uki.nux.desktop.nux.NuxProgressCircle
+import com.uki.nux.desktop.nux.NuxStyle
 import nspkmpdesktop.composeapp.generated.resources.Res
 import nspkmpdesktop.composeapp.generated.resources.cpu_upper
 import nspkmpdesktop.composeapp.generated.resources.device_identifier
@@ -43,6 +43,8 @@ import nspkmpdesktop.composeapp.generated.resources.device_name
 import nspkmpdesktop.composeapp.generated.resources.device_name_description
 import nspkmpdesktop.composeapp.generated.resources.device_state_info
 import nspkmpdesktop.composeapp.generated.resources.ic_desktop_add
+import nspkmpdesktop.composeapp.generated.resources.ic_desktop_delete
+import nspkmpdesktop.composeapp.generated.resources.ic_desktop_directory
 import nspkmpdesktop.composeapp.generated.resources.ic_desktop_edit
 import nspkmpdesktop.composeapp.generated.resources.ic_desktop_power_off
 import nspkmpdesktop.composeapp.generated.resources.ic_desktop_refresh
@@ -92,7 +94,6 @@ fun HomeScreen() {
             QrcodeSection()
             EditDiskSection()
             Spacer(Modifier.height(20.dp))
-            ManagementSection()
         }
     }
 }
@@ -233,43 +234,6 @@ private fun IdentifierSection() {
 }
 
 @Composable
-private fun EditDiskSection() {
-    Row(
-        modifier = Modifier.fillMaxWidth()
-            .clip(RoundedCornerShape(NuxDimens.D16))
-            .background(Color(NuxColors.BG_PRIMARY))
-            .padding(NuxDimens.D16),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Column {
-                Text(
-                    text = stringResource(Res.string.store_dirs),
-                    style = NuxStyle.PrimaryBoldTextStyle
-                )
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    text = stringResource(Res.string.store_dirs_description),
-                    style = NuxStyle.SecondarySemiTextStyle
-                )
-            }
-            Image(
-                painter = painterResource(Res.drawable.ic_desktop_add),
-                contentDescription = null,
-                modifier = Modifier.size(40.dp).clip(RoundedCornerShape(8.dp)).clickable {
-
-                }.padding(9.dp),
-            )
-        }
-    }
-}
-
-@Composable
 private fun InformationSection() {
     Row(
         modifier = Modifier.fillMaxWidth()
@@ -343,6 +307,69 @@ private fun QrcodeSection() {
 }
 
 @Composable
-private fun ManagementSection() {
+private fun EditDiskSection() {
+    Row(
+        modifier = Modifier.fillMaxWidth()
+            .clip(RoundedCornerShape(NuxDimens.D16))
+            .background(Color(NuxColors.BG_PRIMARY))
+            .padding(NuxDimens.D16),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column {
+                Text(
+                    text = stringResource(Res.string.store_dirs),
+                    style = NuxStyle.PrimaryBoldTextStyle
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = stringResource(Res.string.store_dirs_description),
+                    style = NuxStyle.SecondarySemiTextStyle
+                )
+            }
+            Image(
+                painter = painterResource(Res.drawable.ic_desktop_add),
+                contentDescription = null,
+                modifier = Modifier.size(40.dp).clip(RoundedCornerShape(8.dp)).clickable {
+
+                }.padding(9.dp),
+            )
+        }
+    }
+}
+
+@Composable
+private fun DiskObjectFrame(name: String, path: String) {
+    Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Image(
+            painter = painterResource(Res.drawable.ic_desktop_directory),
+            contentDescription = null,
+            modifier = Modifier.size(40.dp),
+            contentScale = ContentScale.FillBounds
+        )
+        Column(
+            modifier = Modifier.weight(1F),
+            verticalArrangement = Arrangement.spacedBy(NuxDimens.D2)
+        ) {
+            Text(text = name, style = NuxStyle.SecondaryBoldTextStyle)
+            Text(
+                text = path,
+                style = TextStyle(color = Color(NuxColors.TEXT_TERTIARY), fontSize = NuxDimens.S10)
+            )
+        }
+        Image(
+            painter = painterResource(Res.drawable.ic_desktop_delete),
+            contentDescription = null,
+            modifier = Modifier.size(20.dp).clip(RoundedCornerShape(NuxDimens.D4)).clickable {}
+        )
+    }
+}
+
+private fun configureDebugDisks() {
 
 }

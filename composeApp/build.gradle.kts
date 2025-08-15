@@ -43,11 +43,11 @@ kotlin {
 
 compose.desktop {
     application {
-        mainClass = "com.ukii.nsp.desktop.MainKt"
+        mainClass = "com.uki.nux.desktop.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.ukii.nsp.desktop"
+            packageName = "com.uki.nux.desktop"
             packageVersion = "1.0.0"
         }
     }

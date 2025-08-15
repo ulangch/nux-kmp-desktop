@@ -1,4 +1,4 @@
-rootProject.name = "Nspkmpdesktop"
+rootProject.name = "Nuxkmpdesktop"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

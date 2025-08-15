@@ -1,4 +1,4 @@
-package com.ukii.nsp.desktop
+package com.uki.nux.desktop
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

@@ -1,4 +1,4 @@
-package com.ukii.nsp.desktop.nux
+package com.uki.nux.desktop.nux
 
 /**
  * Created by ulangch on 2025/8/13

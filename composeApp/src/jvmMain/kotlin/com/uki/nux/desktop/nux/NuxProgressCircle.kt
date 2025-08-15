@@ -1,4 +1,4 @@
-package com.ukii.nsp.desktop.nux
+package com.uki.nux.desktop.nux
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.BoxWithConstraints

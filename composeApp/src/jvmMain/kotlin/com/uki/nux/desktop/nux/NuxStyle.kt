@@ -1,4 +1,4 @@
-package com.ukii.nsp.desktop.nux
+package com.uki.nux.desktop.nux
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle

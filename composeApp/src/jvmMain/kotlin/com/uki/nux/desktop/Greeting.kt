@@ -1,4 +1,4 @@
-package com.ukii.nsp.desktop
+package com.uki.nux.desktop
 
 class Greeting {
     private val platform = getPlatform()

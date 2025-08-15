@@ -1,4 +1,4 @@
-package com.ukii.nsp.desktop
+package com.uki.nux.desktop
 
 class JVMPlatform {
     val name: String = "Java ${System.getProperty("java.version")}"
