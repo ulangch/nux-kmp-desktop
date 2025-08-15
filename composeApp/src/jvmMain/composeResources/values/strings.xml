@@ -7,7 +7,7 @@
     <string name="device_identifier">设备标识：</string>
     <string name="device_identifier_description">设备的唯一可识别ID，自动生成不可更改。</string>
     <string name="running_duration">本次运行</string>
-    <string name="running_duration_fmt">%d 天 %d 时 %d 分 %d 秒</string>
+    <string name="running_duration_fmt">%1$d 天 %2$d 时 %3$d 分 %4$d 秒</string>
     <string name="cpu_upper">CPU</string>
     <string name="memory">内存</string>
     <string name="lan_address">局域网地址</string>
