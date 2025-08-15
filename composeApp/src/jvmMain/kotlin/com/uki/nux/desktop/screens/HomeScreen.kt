@@ -29,6 +29,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import com.uki.nux.desktop.data.NuxFile
 import com.uki.nux.desktop.nux.NuxColors
 import com.uki.nux.desktop.nux.NuxDimens
 import com.uki.nux.desktop.nux.NuxProgressCircle
@@ -79,18 +80,18 @@ fun HomeScreen() {
     ) {
         Column(
             modifier = Modifier.fillMaxSize().clip(RoundedCornerShape(NuxDimens.D16))
-                .background(Color(0x80FFFFFF)).padding(NuxDimens.D12)
+                .background(Color(0x80FFFFFF)).padding(horizontal = NuxDimens.D12)
                 .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.spacedBy(NuxDimens.D16),
+            verticalArrangement = Arrangement.spacedBy(NuxDimens.D12),
         ) {
-//            StateSection()
+            Spacer(Modifier.height(NuxDimens.D0))
             StateVersion2Section()
             EditNameSection()
             IdentifierSection()
             InformationSection()
             QrcodeSection()
             EditDiskSection()
-            Spacer(Modifier.height(20.dp))
+            Spacer(Modifier.height(NuxDimens.D0))
         }
     }
 }
@@ -305,13 +306,11 @@ private fun QrcodeSection() {
 
 @Composable
 private fun EditDiskSection() {
-    Row(
+    Column(
         modifier = Modifier.fillMaxWidth()
             .clip(RoundedCornerShape(NuxDimens.D16))
             .background(Color(NuxColors.BG_PRIMARY))
             .padding(NuxDimens.D16),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -337,23 +336,30 @@ private fun EditDiskSection() {
                 }.padding(9.dp),
             )
         }
+        Spacer(Modifier.height(NuxDimens.D10))
+        for (nuxFile in configureDebugDisks()) {
+            DiskObjectFrame(nuxFile.name, nuxFile.path)
+        }
     }
 }
 
 @Composable
 private fun DiskObjectFrame(name: String, path: String) {
-    Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+    Row(
+        modifier = Modifier.fillMaxWidth().height(50.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         Image(
             painter = painterResource(Res.drawable.ic_desktop_directory),
             contentDescription = null,
-            modifier = Modifier.size(40.dp),
+            modifier = Modifier.size(30.dp),
             contentScale = ContentScale.FillBounds
         )
         Column(
-            modifier = Modifier.weight(1F),
-            verticalArrangement = Arrangement.spacedBy(NuxDimens.D2)
+            modifier = Modifier.weight(1F).padding(horizontal = NuxDimens.D12),
+            verticalArrangement = Arrangement.spacedBy(NuxDimens.D6)
         ) {
-            Text(text = name, style = NuxStyle.SecondaryBoldTextStyle)
+            Text(text = name, style = NuxStyle.SecondarySemiTextStyle)
             Text(
                 text = path,
                 style = TextStyle(color = Color(NuxColors.TEXT_TERTIARY), fontSize = NuxDimens.S10)
@@ -362,11 +368,16 @@ private fun DiskObjectFrame(name: String, path: String) {
         Image(
             painter = painterResource(Res.drawable.ic_desktop_delete),
             contentDescription = null,
-            modifier = Modifier.size(20.dp).clip(RoundedCornerShape(NuxDimens.D4)).clickable {}
+            modifier = Modifier.size(40.dp).clip(RoundedCornerShape(NuxDimens.D8)).clickable {}
+                .padding(14.dp)
         )
     }
 }
 
-private fun configureDebugDisks() {
-
+private fun configureDebugDisks(): List<NuxFile> {
+    return listOf(
+        NuxFile("我的资源库", "D://NuxSpace"),
+        NuxFile("手机备份空间", "E://AutoBackup"),
+//        NuxFile("影视资源", "F://Videos"),
+    )
 }

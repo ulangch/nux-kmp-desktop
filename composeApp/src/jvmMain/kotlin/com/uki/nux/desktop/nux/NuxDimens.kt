@@ -19,6 +19,8 @@ object NuxDimens {
     val S22 = 22.sp
     val S24 = 24.sp
 
+    val D0 = 0.dp
+    val D1 = 1.dp
     val D2 = 2.dp
     val D4 = 4.dp
     val D6 = 6.dp
